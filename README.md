@@ -2,8 +2,33 @@
 Pārbaudes darbs/Madona
 
 Uzmanīgi lasīt uzdevumus un pildīt! Nepieciešamie faili ir jāveido pašiem, kā arī saturs. IEVĒRO – mainīgo un failu nosaukumus jāizdomā Tev!
-1.	Izveidot Python programmu, kas nolasītu un izdrukātu visu teksta faila saturu (txt formātā). (3 punkti)
-2.	Izveidot Python programmu, kas nolasītu un izdrukātu tikai otrās kolonnas datus no CSV faila. (3 punkti)
-3.	Izveidot Python programmu, kas nolasītu un izdrukātu trešās teksta faila rindas saturu. (3 punkti)
-4.	Izveidot Python programmu, kur  lietotājs ievada par faila nosaukumu un faila formātu (paplašinājumu), un atkarībā no faila paplašinājuma tiek nolasīts faila saturs.  Nolasītā informācija ir jāizdrukā terminālī. Ievērot iespejamās kļūdas! (8 punkti)
+1.import os
+
+file_path = 'example.txt'
+
+with open(file_path, 'r') as file:
+    print(file.read())
+    
+3.	import csv
+
+file_path = 'example.txt'
+
+with open(file_path, 'r') as txtfile:
+    for line in txtfile:
+        print(line.strip())
+4.	def read_and_print_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            print(line.strip())
+
+if __name__ == "__main__":
+    file_path = input("Enter the file path: ")
+    file_extension = input("Enter the file extension (e.g., .txt, .csv): ")
+
+    if file_extension.lower() == ".txt":
+        read_and_print_file(file_path)
+    elif file_extension.lower() == ".csv":
+        pass
+    else:
+        print("Unsupported file extension. Only .txt and .csv are currently supported.")
 5.	Izveidot Python programmu, kas ļauj lietotājam ievadīt savu vārdu terminālī. Ievadīto vārdu pēc tam ierakstīt teksta failā (piemēram, "lietotajs.txt"). Programmai jābūt spējīgai apstrādāt kļūdas, piemēram, faila nepieejamību vai rakstīšanas problēmas. Pēc ierakstīšanas izvadīt paziņojumu par veiksmīgu darbību vai kļūdu gadījumā attiecīgu kļūdas ziņojumu. (8 punkti)
